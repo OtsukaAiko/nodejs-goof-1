@@ -34,3 +34,5 @@ jobs:
         run: snyk monitor # プロジェクトをSnykで監視
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true  # Node.js 20を強制的に使用
