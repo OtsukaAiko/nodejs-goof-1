@@ -1,9 +1,7 @@
 name: Snyk Code Scan
-
 on: push
-
 jobs:
-  Snyk Code:
+  SnykCode:
     runs-on: ubuntu-latest
 
     steps:
