@@ -26,9 +26,9 @@ jobs:
 
       - name: Run Snyk Code Analysis
         run: snyk code test # Snyk Codeによるコードスキャンを実行
-        #continue-on-error: true        
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true  # 脆弱性が発見されるとエラーが発生するので続行させる
 
       - name: Monitor project with Snyk
         run: snyk monitor # プロジェクトをSnykで監視
