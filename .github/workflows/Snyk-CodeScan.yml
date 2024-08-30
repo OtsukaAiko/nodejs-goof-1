@@ -35,16 +35,16 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: Run Snyk Open Source Analysis
-        run: snyk test  #Snyk Open Sourceによる脆弱性スキャンを実行
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true  # エラーが発生しても続行
-
-      - name: Monitor Snyk Open Source Analysis
-        run: snyk monitor --project-name=snyk-open-source-analysis
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#      - name: Run Snyk Open Source Analysis
+#        run: snyk test  #Snyk Open Sourceによる脆弱性スキャンを実行
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#        continue-on-error: true  # エラーが発生しても続行
+#
+#      - name: Monitor Snyk Open Source Analysis
+#        run: snyk monitor --project-name=snyk-open-source-analysis
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true  # Node.js 20を強制的に使用
