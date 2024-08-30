@@ -1,4 +1,4 @@
-name: Snyk Code Scan
+name: Snyk Code and Open Source Analysis
 
 on:
   push:
@@ -29,6 +29,12 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true  # 脆弱性が発見されるとエラーが発生するので続行させる
+
+      - name: Run Snyk Open Source Analysis
+        run: snyk test  #Snyk Open Sourceによる脆弱性スキャンを実行
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true  # エラーが発生しても続行
 
       - name: Monitor project with Snyk
         run: snyk monitor # プロジェクトをSnykで監視
