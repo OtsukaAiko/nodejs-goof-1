@@ -1,6 +1,5 @@
-name: Example workflow for Node using Snyk
+name: Example workflow using Snyk
 on: push
-
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -10,3 +9,5 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
