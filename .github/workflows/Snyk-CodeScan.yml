@@ -1,4 +1,4 @@
-name: Snyk Code and Snyk Open Source
+name: Snyk Code Scan
 
 on:
   push:
@@ -7,16 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
-jobs:
-  Snyk Open Source:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 jobs:
   Snyk Code:
