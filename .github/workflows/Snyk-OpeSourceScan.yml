@@ -1,5 +1,10 @@
 name: Snyk Open Source Scan
-on: push
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   SnykOpenSource:
     runs-on: ubuntu-latest
@@ -9,3 +14,5 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
