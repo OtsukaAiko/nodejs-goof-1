@@ -1,9 +1,7 @@
 name: Snyk Open Source Scan
-
 on: push
-
 jobs:
-  Snyk Open Source:
+  SnykOpenSource:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
