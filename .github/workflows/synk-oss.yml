@@ -1,5 +1,12 @@
 name: Example workflow using Snyk
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -10,4 +17,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
+          command: monitor
+
+      - name: Run Snyk Code Security
+        uses: snyk/actions/code@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
           command: monitor
